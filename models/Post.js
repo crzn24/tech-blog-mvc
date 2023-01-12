@@ -15,7 +15,7 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        body: {
+        body: { //TODO post_body?
             type: DataTypes.STRING,
             allowNull: false,
         }
