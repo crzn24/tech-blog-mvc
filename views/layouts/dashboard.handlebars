@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tech Blog</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+</head>
+
+<body class="flex-column min-100-vh">
+    <header>
+        <h1><a href="/">THE TECH BLOG</a></h1>
+        <nav>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="#" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+    </header>
+    
+    <main class="col-auto">
+        {{{body}}}
+    </main>
+
+    <footer class="footer flex-row justify-center">
+        <a href="/dashboard/new">+ New Post</a>
+    </footer>
+</body>
+
+<script src="/javascript/logout.js"></script>
+
+</html>
