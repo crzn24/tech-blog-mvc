@@ -2,12 +2,12 @@ const router = require("express").Router();
 const { Post, Comment, User } = require("../models/");
 
 // get all posts for homepage
-router.get("/", (req, res) => {
-    Post.findAll({
+router.get("/", async (req, res) => {
+    const allPostData = await Post.findAll({
         include: [User],
     })
-        .then((dbPostData) => {
-            const posts = dbPostData.map((post) => post.get({ plain: true }));
+        .then((allPostData) => {
+            const posts = allPostData.map((post) => post.get({ plain: true }));
 
             res.render("all-posts", { posts });
         })
@@ -21,8 +21,8 @@ router.get("/", (req, res) => {
 
 
 // get single post
-router.get("/post/:id", (req, res) => {
-    Post.findByPk(req.params.id, {
+router.get("/post/:id", async (req, res) => {
+    const allPostsData = await Post.findByPk(req.params.id, {
         include: [
             User,
             {
@@ -31,9 +31,9 @@ router.get("/post/:id", (req, res) => {
             },
         ],
     })
-        .then((dbPostData) => {
-            if (dbPostData) {
-                const post = dbPostData.get({ plain: true });
+        .then((allPostsData) => {
+            if (allPostsData) {
+                const post = allPostsData.get({ plain: true });
 
                 res.render("single-post", { post });
             } else {
