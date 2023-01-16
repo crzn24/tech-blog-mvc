@@ -6,13 +6,13 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, (req, res) => {
     Post.findAll({
         where: {
-            userId: req.session.userId
+            id: req.session.userId
         }
     })
         .then(dbPostData => {
             const posts = dbPostData.map((post) => post.get({ plain: true }));
 
-            res.render("allpostsadmin", {
+            res.render("allpostadmin", {
                 layout: "dashboard",
                 posts
             });
