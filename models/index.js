@@ -18,21 +18,28 @@ Post.hasMany(Comment, {
 // Comments belong to a user (one-to-one)
 Comment.belongsTo(User, {
     foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
 
 // TODO More relationships
 
-// // Comments belong to a post
-// Comment.belongsTo(Post, {
-//     foreignKey: 'post_id',
-// });
+// Comments belong to a post
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id',
+});
 
-//  // Users can have many posts
-//  Usercred.hasMany(Post, {
-//     foreignKey: 'user_id',
-//     onDelete: 'CASCADE',
-//   });
+// Users can have many posts
+User.hasMany(Post, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
+
+// User can have many comments
+User.hasMany(Comment, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
 
 module.exports = {
     User,
