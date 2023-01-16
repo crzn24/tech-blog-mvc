@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
         .then((allPostData) => {
             const posts = allPostData.map((post) => post.get({ plain: true }));
 
-            res.render("all-posts", { posts });
+            res.render("allposts", { posts });
         })
         .catch((err) => {
             res.status(500).json(err);
@@ -35,7 +35,7 @@ router.get("/post/:id", async (req, res) => {
             if (allPostsData) {
                 const post = allPostsData.get({ plain: true });
 
-                res.render("single-post", { post });
+                res.render("singlepost", { post });
             } else {
                 res.status(404).end();
             }
