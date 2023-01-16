@@ -6,26 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Tech Blog</title>
   <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/jass.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
+  <div class="flex-column min-100-vh justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1>
+      <h1 class="app-title">
         <a href="/">THE TECH BLOG</a>
       </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
+      <nav class="navbar">
+        {{!-- <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
-        {{/if}}
+        {{/if}} --}}
+        <ul>
+            <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="li-inline nav-item"><a href="/login">Login</a></li>
+            <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
+        </ul>
       </nav>
     </header>
 
-    <main class="container container-fluid mt-5">
+    <main class="col-auto container container-fluid mt-5">
       <!-- Render the layout -->
       {{{ body }}}
     </main>
@@ -36,9 +42,10 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{#if logged_in}}
+  {{!-- {{#if logged_in}}
   <script src="/public/js/logout.js"></script>
-  {{/if}}
+  {{/if}} --}}
 </body>
 
 </html>
+<script src="/javascript/logout.js"></script>
