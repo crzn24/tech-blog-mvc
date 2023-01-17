@@ -56,7 +56,7 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 [Link to Repository](https://github.com/crzn24/tech-blog-mvc.git)
 
-[Link to Deployed Application]()
+[Link to Deployed Application](https://tech-blog-mvc-crzn24.herokuapp.com/)
 
 ![Screenshot of ]()
 
